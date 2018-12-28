@@ -32,6 +32,11 @@ default_toolchain {
   cpu: "ppc"
   toolchain_identifier: "local_linux"
 }
+default_toolchain {
+  cpu: "mips64"
+  toolchain_identifier: "local_linux"
+}
+
 
 toolchain {
   abi_version: "local"
@@ -47,7 +52,7 @@ toolchain {
   supports_normalizing_ar: false
   supports_start_end_lib: false
   target_libc: "local"
-  target_cpu: "ppc"
+  target_cpu: "mips64|ppc"
   target_system_name: "local"
   toolchain_identifier: "local_linux"
 

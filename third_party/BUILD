@@ -631,6 +631,10 @@ config_setting(
     values = {"host_cpu": "ppc"},
 )
 
+config_setting(
+    name = "mips64",
+    values = {"host_cpu": "mips64"},
+)
 test_suite(
     name = "all_windows_tests",
     tests = [

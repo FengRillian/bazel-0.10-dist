@@ -40,7 +40,7 @@ public final class BazelMockCcSupport extends MockCcSupport {
   private BazelMockCcSupport() {}
 
   private static final ImmutableList<String> CROSSTOOL_ARCHS =
-      ImmutableList.of("piii", "k8", "armeabi-v7a", "ppc");
+      ImmutableList.of("piii", "k8", "armeabi-v7a", "ppc", "mips64");
 
   protected static void createBasePackage(MockToolsConfig config) throws IOException {
     config.create(
@@ -91,7 +91,8 @@ public final class BazelMockCcSupport extends MockCcSupport {
         "      'armeabi-v7a|compiler': ':cc-compiler-armeabi-v7a',",
         "      'x64_windows|windows_msys64': ':cc-compiler-x64_windows',",
         "      'ppc|compiler': ':cc-compiler-ppc',",
-        "    })",
+	"      'mips64|compiler': ':cc-compiler-mips64',",        
+	"    })",
         "cc_toolchain(name = 'cc-compiler-k8', all_files = ':empty', compiler_files = ':empty',",
         "    cpu = 'k8', compiler = 'compiler', libc = 'local', dwp_files = ':empty',",
         "    dynamic_runtime_libs = [':empty'], ",
@@ -144,6 +145,12 @@ public final class BazelMockCcSupport extends MockCcSupport {
         "    cpu = 'x64_windows', compiler = 'windows_msys64', libc = 'local', ",
         "    dwp_files = ':empty',",
         "    dynamic_runtime_libs = [':empty'], ",
+        "    linker_files = ':empty',",
+        "    module_map = 'crosstool.cppmap', supports_header_parsing = 1,",
+        "    objcopy_files = ':empty', static_runtime_libs = [':empty'], strip_files = ':empty',",
+        ")",
+	"cc_toolchain(name = 'cc-compiler-mips64', all_files = ':empty', compiler_files = ':empty',",
+        "    cpu = 'mips64', dwp_files = ':empty', dynamic_runtime_libs = [':empty'], ",
         "    linker_files = ':empty',",
         "    module_map = 'crosstool.cppmap', supports_header_parsing = 1,",
         "    objcopy_files = ':empty', static_runtime_libs = [':empty'], strip_files = ':empty',",

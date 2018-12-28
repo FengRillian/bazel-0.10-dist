@@ -74,8 +74,8 @@ java_toolchain(
     javabuilder = ["bootstrap_deploy.jar"],
     javac = ["//third_party/java/jdk/langtools:javac_jar"],
     jvm_opts = [
-        "-XX:+TieredCompilation",
-        "-XX:TieredStopAtLevel=1",
+        #"-XX:+TieredCompilation",
+        #"-XX:TieredStopAtLevel=1",
         "-Xbootclasspath/p:$(location //third_party/java/jdk/langtools:javac_jar)",
     ],
     singlejar = ["//src/java_tools/singlejar:bootstrap_deploy.jar"],
